@@ -219,6 +219,7 @@ static void goomba_act_walk(void) {
  */
 static void goomba_act_attacked_mario(void) {
     if (o->oGoombaSize == GOOMBA_SIZE_TINY) {
+        gMarioState->karma -= 5;
         mark_goomba_as_dead();
         o->oNumLootCoins = 0;
         obj_die_if_health_non_positive();
@@ -307,6 +308,7 @@ void bhv_goomba_update(void) {
         // even though the goomba isn't actually dead.
         if (obj_handle_attacks(&sGoombaHitbox, GOOMBA_ACT_ATTACKED_MARIO,
                                sGoombaAttackHandlers[o->oGoombaSize & 1])) {
+            gMarioState->karma -= 5;
             mark_goomba_as_dead();
         }
 

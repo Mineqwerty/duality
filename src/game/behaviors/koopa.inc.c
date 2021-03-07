@@ -278,6 +278,7 @@ void shelled_koopa_attack_handler(s32 attackType) {
     } else {
         // Die if tiny koopa
         obj_die_if_health_non_positive();
+        gMarioState->karma -= 5;
     }
 }
 
@@ -314,6 +315,7 @@ static void koopa_shelled_update(void) {
         obj_handle_attacks(&sKoopaHitbox, KOOPA_SHELLED_ACT_DIE, sKoopaUnshelledAttackHandlers);
         if (o->oAction == KOOPA_SHELLED_ACT_DIE) {
             obj_die_if_health_non_positive();
+            gMarioState->karma -= 5;
         }
     }
 
