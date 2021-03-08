@@ -1699,9 +1699,12 @@ s32 execute_mario_action(UNUSED struct Object *o) {
     s32 inLoop = TRUE;
 
 
-    print_text_fmt_int(100, 100, "KARMA %d", gMarioState->karma);
-    if (gMarioState->karma < -20) {
-        gMarioState->health = 0xFF;
+    print_text_fmt_int(200, 200, "KARMA %d", gMarioState->karma);
+    if (gMarioState->karma < -4) {
+       
+        set_mario_action(gMarioState, ACT_QUICKSAND_DEATH, 0);
+        spawn_object_relative(0, 0, 120, 0, o, MODEL_SHADOW_SINK, bhvKickableBoard);
+        gMarioState->karma = 0;
     }
 
     if (gMarioState->action) {
