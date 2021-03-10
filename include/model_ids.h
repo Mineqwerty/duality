@@ -576,6 +576,7 @@
 
 
 #define MODEL_SHADOW_SINK                 0xFF
+#define MODEL_HEAVEN_GLIDE                 0xFE
 
 
 

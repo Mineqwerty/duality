@@ -1701,10 +1701,24 @@ s32 execute_mario_action(UNUSED struct Object *o) {
 
     print_text_fmt_int(200, 200, "KARMA %d", gMarioState->karma);
     if (gMarioState->karma < -4) {
-       
+       gMarioState->warpPos[0] = gMarioState->pos[0];
+       gMarioState->warpPos[1] = gMarioState->pos[1];
+       gMarioState->warpPos[2] = gMarioState->pos[2];
         set_mario_action(gMarioState, ACT_QUICKSAND_DEATH, 0);
         spawn_object_relative(0, 0, 120, 0, o, MODEL_SHADOW_SINK, bhvKickableBoard);
         gMarioState->karma = 0;
+        gMarioState->setKarmaPos = 1;
+    }
+
+    if (gMarioState->karma > 4) {
+        gMarioState->warpPos[0] = gMarioState->pos[0];
+       gMarioState->warpPos[1] = gMarioState->pos[1];
+       gMarioState->warpPos[2] = gMarioState->pos[2];
+        set_mario_action(gMarioState, ACT_EATEN_BY_BUBBA, 0);
+        spawn_object_relative(1, 0, 120, 0, o, MODEL_HEAVEN_GLIDE, bhvKickableBoard);
+        gMarioState->karma = 0;
+        gMarioState->setKarmaPos = 1;
+
     }
 
     if (gMarioState->action) {

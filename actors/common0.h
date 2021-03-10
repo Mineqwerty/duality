@@ -207,4 +207,6 @@ extern const Collision unknown_seg8_collision_080262F8[];
 
 
 #include "shadow_sink/anim_header.h"
+#include "heaven_glide/geo_header.h"
+
 #endif

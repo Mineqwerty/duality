@@ -346,6 +346,9 @@ struct MarioState
     /*0xC0*/ f32 quicksandDepth;
     /*0xC4*/ f32 unkC4;
     int karma;
+    u32 karmaLevelWarp;
+    Vec3f warpPos;
+    int setKarmaPos;
 };
 
 #endif // TYPES_H

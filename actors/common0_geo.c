@@ -29,3 +29,4 @@
 #include "koopa_shell/geo.inc.c"
 
 #include "shadow_sink/geo.inc.c"
+#include "heaven_glide/geo.inc.c"

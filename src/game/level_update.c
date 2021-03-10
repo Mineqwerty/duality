@@ -371,6 +371,12 @@ void set_mario_initial_action(struct MarioState *m, u32 spawnType, u32 actionArg
     }
 
     set_mario_initial_cap_powerup(m);
+    if (gMarioState->setKarmaPos == 1) {
+        gMarioState->pos[0] = gMarioState->warpPos[0];
+        gMarioState->pos[1] = gMarioState->warpPos[1];
+        gMarioState->pos[2] = gMarioState->warpPos[2];
+        gMarioState->setKarmaPos = 0;
+    }
 }
 
 void init_mario_after_warp(void) {
