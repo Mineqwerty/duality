@@ -1699,8 +1699,8 @@ s32 execute_mario_action(UNUSED struct Object *o) {
     s32 inLoop = TRUE;
 
 
-    print_text_fmt_int(200, 200, "KARMA %d", gMarioState->karma);
-    if (gMarioState->karma < -4) {
+    print_text_fmt_int(200, 180, "KARMA %d", gMarioState->karma);
+    if (gMarioState->karma < -24) {
        gMarioState->warpPos[0] = gMarioState->pos[0];
        gMarioState->warpPos[1] = gMarioState->pos[1];
        gMarioState->warpPos[2] = gMarioState->pos[2];
@@ -1708,9 +1708,10 @@ s32 execute_mario_action(UNUSED struct Object *o) {
         spawn_object_relative(0, 0, 120, 0, o, MODEL_SHADOW_SINK, bhvKickableBoard);
         gMarioState->karma = 0;
         gMarioState->setKarmaPos = 1;
+        gMarioState->karmaLevelWarp = LEVEL_BOB;
     }
 
-    if (gMarioState->karma > 4) {
+    if (gMarioState->karma > 24) {
         gMarioState->warpPos[0] = gMarioState->pos[0];
        gMarioState->warpPos[1] = gMarioState->pos[1];
        gMarioState->warpPos[2] = gMarioState->pos[2];
@@ -1718,6 +1719,7 @@ s32 execute_mario_action(UNUSED struct Object *o) {
         spawn_object_relative(1, 0, 120, 0, o, MODEL_HEAVEN_GLIDE, bhvKickableBoard);
         gMarioState->karma = 0;
         gMarioState->setKarmaPos = 1;
+        gMarioState->karmaLevelWarp = LEVEL_BOB;
 
     }
 

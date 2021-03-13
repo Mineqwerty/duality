@@ -1,5 +1,5 @@
 extern const GeoLayout heaven_glide_geo[];
-extern Vtx heaven_glide_Plane_mesh_vtx_0[32];
+extern Vtx heaven_glide_Plane_mesh_vtx_0[16];
 extern Gfx heaven_glide_Plane_mesh_tri_0[];
 
 extern Gfx heaven_glide_Plane_mesh[];

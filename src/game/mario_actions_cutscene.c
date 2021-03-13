@@ -741,7 +741,7 @@ s32 act_quicksand_death(struct MarioState *m) {
             play_sound_if_no_flag(m, SOUND_MARIO_WAAAOOOW, MARIO_ACTION_SOUND_PLAYED);
         }
         if ((m->quicksandDepth += 5.0f) >= 380.0f) {
-            initiate_warp(LEVEL_LLL, 1, 0x0A, 0);
+            initiate_warp(gMarioState->karmaLevelWarp, 2, 0x0A, 0);
             m->actionState = 2;
         }
     }
@@ -758,7 +758,8 @@ s32 act_eaten_by_bubba(struct MarioState *m) {
     gMarioState->marioObj->header.gfx.pos[1] += 10.0f;
     gCamera->cutscene = 1;
     if (m->actionTimer++ >= 120) {
-        initiate_warp(LEVEL_LLL, 1, 0x0A, 0);
+        gMarioState->setKarmaPos = 1;
+        initiate_warp(gMarioState->karmaLevelWarp, 3, 0x0C, 0);
     }
     return FALSE;
 }

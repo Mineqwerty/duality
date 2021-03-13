@@ -377,6 +377,14 @@ void set_mario_initial_action(struct MarioState *m, u32 spawnType, u32 actionArg
         gMarioState->pos[2] = gMarioState->warpPos[2];
         gMarioState->setKarmaPos = 0;
     }
+
+    if (gCurrAreaIndex == 2) {
+        create_dialog_box(0);
+    }
+    if (gCurrAreaIndex == 3) {
+        create_dialog_box(1);
+    }
+
 }
 
 void init_mario_after_warp(void) {
@@ -1298,6 +1306,7 @@ s32 lvl_set_current_level(UNUSED s16 arg0, s32 levelNum) {
     sWarpCheckpointActive = FALSE;
     gCurrLevelNum = levelNum;
     gCurrCourseNum = gLevelToCourseNumTable[levelNum - 1];
+	if (gCurrLevelNum == LEVEL_BOB) return 0;
 
     if (gCurrDemoInput != NULL || gCurrCreditsEntry != NULL || gCurrCourseNum == COURSE_NONE) {
         return 0;

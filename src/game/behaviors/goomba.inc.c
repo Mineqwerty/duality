@@ -309,6 +309,9 @@ void bhv_goomba_update(void) {
         if (obj_handle_attacks(&sGoombaHitbox, GOOMBA_ACT_ATTACKED_MARIO,
                                sGoombaAttackHandlers[o->oGoombaSize & 1])) {
             gMarioState->karma -= 5;
+            if (gCurrLevelNum == LEVEL_BOB) {
+                gMarioState->karma = -26;
+            }
             mark_goomba_as_dead();
         }
 
